@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Steffinlongo
+    given-names: Anna
+    orcid: https://orcid.org/0000-0002-2036-8991
+title: "Example scripts for computing DIQKD rates with single photons"
+date-released: 2024-09-25
