@@ -94,7 +94,6 @@ def OBS(params):
     
     sech = 1 / sp.cosh(z)
     
-    # P = M.parse_mathematica('{{-1 + 2 E^(a^2 (-1 + Cos[phi - 2 theta] Tanh[z])) Sech[z],   2 a E^(-a^2 - I theta + a^2 Cos[phi - 2 theta] Tanh[z])    Sech[z]^2}, {2 a E^(-a^2 + I theta +     a^2 Cos[phi - 2 theta] Tanh[z]) Sech[z]^2, -1 + 2 a^2 E^(a^2 (-1 + Cos[phi - 2 theta] Tanh[z])) Sech[z]^3}}')
     P = sp.Matrix([[2*sp.exp(a**2*(sp.cos(phi - 2*theta)*sp.tanh(z) - 1))*sech - 1, 2*a*sp.exp(a**2*sp.cos(phi - 2*theta)*sp.tanh(z) - a**2 - 1j*theta)*sech**2], [2*a*sp.exp(a**2*sp.cos(phi - 2*theta)*sp.tanh(z) - a**2 + 1j*theta)*sech**2, 2*a**2*sp.exp(a**2*(sp.cos(phi - 2*theta)*sp.tanh(z) - 1))*sech**3 - 1]]
         )
     return P
@@ -165,7 +164,6 @@ def opt_analytical(eta, t, i):
     q = sp.symbols('q')
 
     # Set initial values
-    # initial_values = [float(q_guess[i]), Apar['1a'][i], Apar['1z'][i],  Apar['1ap'][i], Apar['1zp'][i], Apar['2a'][i], Apar['2z'][i],  Apar['2ap'][i], Apar['2zp'][i], Bpar['1a'][i], Bpar['1z'][i],  Bpar['1ap'][i], Bpar['1zp'][i], Bpar['2a'][i],Bpar['2z'][i],  Bpar['2ap'][i], Bpar['2zp'][i],Bpar['3a'][i], Bpar['3z'][i], Bpar['3ap'][i], Bpar['3zp'][i]]
     initial_values = guess[i]
     
     # Define objective function of the optimization problem
