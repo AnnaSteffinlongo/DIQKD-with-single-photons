@@ -9,20 +9,16 @@ def load_params(namefile):
     Opens a cvs file with the noisy preprocessing parameters and loads it. Outputs the vectors with the data
     
         namefile    --    name of the file from which to load the data
-        first       --    variable if you want to skip the first points. Set 0 if you want all the data
     """
     csv_data = []
     with open(namefile, 'r') as file:
 
         csv_reader = csv.reader(file)
 
-        
         # Iterate over the rows and append them to the list
         for line in csv_reader:
             csv_data += [line[1:]]
                        
-            
-        
     l= len(csv_data[0])
     N = [float(csv_data[0][x]) for x in range(l)]
     keys = [float(csv_data[1][x]) for x in range(l)]
@@ -34,11 +30,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 
-
-
+# value of the transmissivity T
 t=0.005
 
-# Load data
+# Load data - in this example we use T=0.005 and eta_L=0.9
 data = './../New_noise/t' + str(t) + '_eta_T0.9_finite_size.csv'
 data_pol = './../polarization/Finite_size/eta_T0.9pol_finite_size.csv'
 N, keys = load_params(data)
@@ -53,22 +48,24 @@ etaD=0.8
 length = np.logspace(0,3,1000)
 etaC = np.sqrt(10**(-length*(0.2/10)))
 
+# Heralding probability for polarization scheme
 PH_pol = t**2* etaD**2* etaC**2 
 PH_ID_pol = t**2* etaC**2 
 
+# Heralding probability for single-photon scheme
 PH = t* etaD* etaC
 PH_ID = t* etaC
 
-# Generation frequency
+# Single photon generation frequency
 freq = 5*1e6
 
 # Elements to plot (each element corresponds to the key rate for a certain N)
 elem_list_pol = [9,20,22,23]
 elem_list = [10,17,19,20]
 
-
 colors = mpl.rcParams['axes.prop_cycle'].by_key()['color']
 
+# Color definition
 num_shades = 5
 dark_red = '#FF5733'
 light_red = '#FFB999'
@@ -80,7 +77,6 @@ blue_colors = [plt.cm.Blues(i) for i in np.linspace(1, 0.3, num_shades)]
 
 red_handles, red_labels = [], []
 blue_handles, blue_labels = [], []
-
 
 fig, ax = plt.subplots()
 
@@ -94,8 +90,7 @@ for col, elem in zip(red_colors, elem_list):
     red_handles.append(red_handle)
     red_labels.append('N=' + f"{N[elem]:.1e}")
     
-
-# Prepare plot for polarization
+# Prepare plot for polarization scheme 
 for col, elem_pol in zip(blue_colors, elem_list_pol):
     key_rate_ID_pol = PH_ID_pol * keys_pol[elem_pol] * freq
     key_rate_pol = PH_pol * keys_pol[elem_pol] * freq
