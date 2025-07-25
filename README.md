@@ -1,6 +1,6 @@
 # DIQKD-with-single-photons
 Examples of scripts data presented in arXiv:2409.17075.
 
-- asymptotic_key.py can be used to produce the asymptotic key rate as a function of the noise. This results in the curves in Fig.5 in Appendix B.
-- finite_size_key.py can be used to obtain the finite-size key rate as a function of the number of protocol rounds N.
-- finite_size_distance.py can be used to obtain the finite-size key rate as a function of the distance between Alice and Bob for a fixed value of N. This results in Fig.3 in the main text.
+- State_Measurement_functions.jl include functions to generate the heralded state (both for SPDC sources and QD) and measurement (both with and without squeezing) considered in our paper. 
+- Asymptotic_key_rate.jl imports State_Measurement_functions.jl and optimizes the parameters to compute CHSH and asymptotic key rate both as a function of noise (for fixed distance) and as a function of distance (for fixed noise). It is used to create the data for Fig.2 in the main text and all the Fig. in Supplemental Material Sec. C.
+- Finite_size_analysis.py can be used to obtain the finite-size key rate as a function of the distance for different number of protocol rounds N. This data is used for Fig.3 in the main text.
