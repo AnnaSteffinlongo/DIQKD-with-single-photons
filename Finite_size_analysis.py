@@ -1,6 +1,8 @@
 """
 This script implements the finite size analysis for DIQKD protocols.
 It computes the key rate for a given set of probabilities for each distance L, for different number of rounds.
+Requires to import a set of probabilities for each considered distance L. 
+These probabilities can be generated using Asymptotic_key_rate.jl
 """
 
 
