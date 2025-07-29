@@ -338,7 +338,7 @@ for i, (L_val, group) in enumerate(grouped):
     guess = [[1.00001,  1.00001,  0.78,  2e-6, q_guess[i]]]
 
     # Calculate Heralding Rate for Current L
-    heralding_rate = R * t_BS * (1 - t_BS) * ηD_C * 10 ** (-0.2 * L_val / 20)
+    heralding_rate = 4 * R * t_BS * (1 - t_BS) * ηD_C * 10 ** (-0.2 * L_val / 20)
 
     j = 0
     # === Loop Over Each N (Number of Rounds) ===
