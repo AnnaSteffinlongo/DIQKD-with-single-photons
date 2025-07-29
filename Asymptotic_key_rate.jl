@@ -271,9 +271,9 @@ function keyrate(ρ, ηD_AB::Float64, X::Vector{Float64}, q::Float64, L, ηL_fix
 
     if ηL_fix
         if QD
-            heralding_rate = R * T * (1-T) * ηD_C * 10^(-0.2*L/20) 
+            heralding_rate = 4 * R * T * (1-T) * ηD_C * 10^(-0.2*L/20) 
         else
-            heralding_rate = ξ^4 * ηSPDC^2 * T * (1-T) * ηD_C * 10^(-0.2*L/20) * R
+            heralding_rate = 4 * ξ^4 * ηSPDC^2 * T * (1-T) * ηD_C * 10^(-0.2*L/20) * R
         end
     
     else
@@ -587,7 +587,6 @@ list_key, list_L, list_param, list_probs = keyrate_bbo(cutoff, ξ, ηSPDC,g,V, T
 T_str = string(round(T, digits=3))
 V_str = string(V)
 g_str = string(round(g, digits=3))
-xi_str = string(round(ξ, digits=3))
 etaL_str = string(round(eta_val, digits=3))
 folder = "results/"
 file_name = "asymptotic_L_QD_etaL$(etaL_str)_g$(g_str)_V$(V_str)_T$(T_str).csv"
