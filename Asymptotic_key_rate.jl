@@ -525,7 +525,7 @@ end
 #  ηD_AB=0.95                                             # Efficiency of Alice and Bob's detectors             
 
 # ______________REALISTIC PARAMETERS____________________
-cutoff=6                                                  # Fock space cutoff
+cutoff=5                                                  # Fock space cutoff
 ξ=0.1; ϕSPDC=0; ηSPDC=0.95; R_SPDC = 1e9; V_SPDC = 0.99   # SPDC source params
 T=0.01;                                                   # Beamsplitter transmittance
 ηD_AB=0.95; ηD_C = 0.95; dark_ps=1                        # Detector efficiencies
