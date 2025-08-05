@@ -10,6 +10,7 @@ It supports:
 
 Required support: `State_Measurement_functions.jl`
 
+Author: Anna Steffinlongo
 """
 
 include("State_Measurement_functions.jl")
@@ -598,5 +599,6 @@ save_rate_results(list_param, list_key, list_L; folder, file_name)
 # Save probabilities for each L value
 file_name = "probabilities_L_QD_etaL$(eta_val)_g$(g_str)_V$(V_str)_T$(T_str).csv"
 save_probs(list_L, list_probs; folder, file_name)
+
 
 
