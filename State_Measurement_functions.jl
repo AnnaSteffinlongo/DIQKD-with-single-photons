@@ -1,3 +1,11 @@
+"""
+Julia script to simulate imperfect heralded single-photon quantum states produced by
+SPDC (Spontaneous Parametric Down-Conversion) or quantum dots, accounting for
+optical elements such as beam splitters and imperfect detectors.
+
+Authors: Mariana Navarro & Enky Outdot
+"""
+
 using LinearAlgebra
 using Ket
 using SparseArrays
